@@ -17,6 +17,7 @@ define(["jquery", "qlik","./RTB_func", "text!./ReloadTaskButton.css", "text!./te
 			$scope.$on("$destroy", function(){ modalContainer.remove(); });
 				
             var taskId = undefined;
+			var taskId2 = undefined;
             
             var app = qlik.currApp(this);
             var appId = app.id;
@@ -61,8 +62,7 @@ define(["jquery", "qlik","./RTB_func", "text!./ReloadTaskButton.css", "text!./te
 					$scope.showOverlay = false;
 					return false;
 				} else {
-
-					if taskId2 == "" {
+					if (taskId2 == "") {
 						RTB_func.getReloadSessionId(taskId).then(function(sessionId){
 							RTB_func.getTaskStatus(sessionId, function(stat){
 								if (stat == 1 || stat == 2 || stat == 3 || stat == 4 || stat == 5) {

@@ -428,7 +428,7 @@ define(["jquery", "qlik","./RTB_func", "text!./ReloadTaskButton.css", "text!./te
 							component: "text"
 						},				
 						version: {
-							label: 'Version: 1.0',
+							label: 'Version: 1.1',
 							component: "text"
 						}					
 					}

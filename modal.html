@@ -2,74 +2,74 @@
 	<div class="modal-overlay" ng-if="showOverlay"></div>
 	<div class="modal-content" ng-if="reloadRunning">
 		<div class="modal-message">
-			<h2>Reload still running!!!</h2>
+			<h2>Ainda está carregando!!!</h2>
 		</div>
 		<div class="modal-botton">
-			<button ng-click="closeModal()" class="btn btn-danger">Close</a>
+			<button ng-click="closeModal()" class="btn btn-danger">Fechar</a>
 		</div>
 	</div>
 	<div class="modal-content" ng-if="askReload">
 		<div class="modal-message">
-			<h2>Do you want to reload application?</h2>
+			<h2>Deseja carregar o app?</h2>
 		</div>
 		<div class="modal-botton">
 			<button ng-click="uploadData()" class="btn btn-ok">OK</button>
-			<button ng-click="closeModal()" class="btn btn-danger">Cancel</button>
+			<button ng-click="closeModal()" class="btn btn-danger">Cancelar</button>
 		</div>
 	</div>
-	<div class="loader" class="loader" ng-if="showLoader">Loading...</div>
+	<div class="loader" class="loader" ng-if="showLoader">Carregando...</div>
 	<div class="modal-content" ng-if="showReloadError">
 		<div class="modal-message">
-			<h2>You have no access to start reload!</h2>
+			<h2>Você pode não ter acesso a esta tarefa!</h2>
 		</div>
 		<br>
 		<div class="modal-message">
-			<button ng-click="closeModal()" class="btn btn-danger">Close</button>
+			<button ng-click="closeModal()" class="btn btn-danger">Fechar</button>
 		</div>
 	</div>
 	<div class="modal-content" ng-if="showStarted">
 		<div class="modal-message">
-			<h2>Reload started</h2>
+			<h2>Carregamento Iniciado</h2>
 		</div>
 		<br>
 		<div class="modal-message">
-			<button ng-click="closeModal()" class="btn btn-success">Close</button>
+			<button ng-click="closeModal()" class="btn btn-success">Fechar</button>
 		</div>
 	</div>
 	<div class="modal-content" ng-if="showScheduled">
 		<div class="modal-message">
-			<h2>Reload scheduled</h2>
+			<h2>Carga agendada</h2>
 		</div>
 		<br>
 		<div class="modal-message">
-			<button ng-click="closeModal()" class="btn btn-success">Close</button>
+			<button ng-click="closeModal()" class="btn btn-success">Fechar</button>
 		</div>
 	</div>
 	<div class="modal-content" ng-if="showSuccess">
 		<div class="modal-message">
-			<h2>Reload succeeded!</h2>
+			<h2>Carregado com Sucesso!</h2>
 		</div>
 		<br>
 		<div class="modal-message">
-			<button ng-click="closeModal()" class="btn btn-success">Close</button>
+			<button ng-click="closeModal()" class="btn btn-success">Fechar</button>
 		</div>
 	</div>
 	<div class="modal-content" ng-if="showFail">
 		<div class="modal-message">
-			<h2>Reload failed!</h2>
+			<h2>Falha no Carregamento!</h2>
 		</div>
 		<br>
 		<div class="modal-message">
-			<button ng-click="closeModal()" class="btn btn-danger">Close</button>
+			<button ng-click="closeModal()" class="btn btn-danger">Fechar</button>
 		</div>		
 	</div>
 	<div class="modal-content" ng-if="showUploadError">
 		<div class="modal-message">
-			<h2>Data upload failed!</h2>
+			<h2>Falha na carga dos dados!</h2>
 		</div>
 		<br>
 		<div class="modal-message">
-			<button ng-click="closeModal()" class="btn btn-danger">Close</button>
+			<button ng-click="closeModal()" class="btn btn-danger">Fechar</button>
 		</div>		
 	</div>
 

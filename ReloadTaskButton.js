@@ -30,6 +30,12 @@ define(["jquery", "qlik","./RTB_func", "text!./ReloadTaskButton.css", "text!./te
             } else {
                 taskId = $scope.layout.pTask;
             }
+
+			if ($scope.layout.pTask2 == "") {
+                taskId2 = "";
+            } else {
+                taskId2 = $scope.layout.pTask2;
+            }
 			
 		
 			$scope.closeModal = function(){
@@ -55,26 +61,50 @@ define(["jquery", "qlik","./RTB_func", "text!./ReloadTaskButton.css", "text!./te
 					$scope.showOverlay = false;
 					return false;
 				} else {
-					RTB_func.getReloadSessionId(taskId).then(function(sessionId){
-						RTB_func.getTaskStatus(sessionId, function(stat){
-							if (stat == 1 || stat == 2 || stat == 3 || stat == 4 || stat == 5) {
-								$scope.reloadRunning = true;
-							} else {
-							
-								if ($scope.layout.reloadType != "schedule") {
-									$scope.askReload = true;
+
+					if taskId2 == "" {
+						RTB_func.getReloadSessionId(taskId).then(function(sessionId){
+							RTB_func.getTaskStatus(sessionId, function(stat){
+								if (stat == 1 || stat == 2 || stat == 3 || stat == 4 || stat == 5) {
+									$scope.reloadRunning = true;
 								} else {
-									RTB_func.getCompositEventId(taskId).then(function(id){
-										if (id == undefined) {
-											$scope.askReload = true;
-										} else {
-											$scope.reloadRunning = true;
-										}
-									});
+								
+									if ($scope.layout.reloadType != "schedule") {
+										$scope.askReload = true;
+									} else {
+										RTB_func.getCompositEventId(taskId).then(function(id){
+											if (id == undefined) {
+												$scope.askReload = true;
+											} else {
+												$scope.reloadRunning = true;
+											}
+										});
+									}
 								}
-							}
+							});
 						});
-					});
+					} else {
+						RTB_func.getReloadSessionId(taskId2).then(function(sessionId){
+							RTB_func.getTaskStatus(sessionId, function(stat){
+								if (stat == 1 || stat == 2 || stat == 3 || stat == 4 || stat == 5) {
+									$scope.reloadRunning = true;
+								} else {
+								
+									if ($scope.layout.reloadType != "schedule") {
+										$scope.askReload = true;
+									} else {
+										RTB_func.getCompositEventId(taskId2).then(function(id){
+											if (id == undefined) {
+												$scope.askReload = true;
+											} else {
+												$scope.reloadRunning = true;
+											}
+										});
+									}
+								}
+							});
+						});
+					}
 				}
 			}
 			
@@ -239,7 +269,17 @@ define(["jquery", "qlik","./RTB_func", "text!./ReloadTaskButton.css", "text!./te
                         TaskProp : {
                             ref : "pTask",
                             type : "string",
-                            label : "Task id",
+                            label : "Task id Inicial",
+                            expression: "optional",
+              				show: function (data) {
+								return data.reloadTaskAuto != true
+							}
+                        },
+
+			TaskProp : {
+                            ref : "pTask2",
+                            type : "string",
+                            label : "Task id Final",
                             expression: "optional",
               				show: function (data) {
 								return data.reloadTaskAuto != true
